@@ -33,7 +33,7 @@ const fetchCharacters = async () => {
   // ^ That request gets all the champion names
   // For each champion name, you now need to fire another request.
   const promiseArr = [];
-  for each character {
+  characters.forEach((character)=> {
     promiseArr.push(
       axios.get(`http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion/${champName}`)
     )
@@ -41,7 +41,6 @@ const fetchCharacters = async () => {
   // Now you have all the get request promises in an array, just await all
   const arrOfChampResponses = await Promise.all(promiseArr);
   // console.log(characters.data.data);
-  
 
   insertData(characters.data.data);
 };
